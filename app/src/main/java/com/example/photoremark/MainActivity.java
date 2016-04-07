@@ -18,11 +18,10 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -30,6 +29,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.photoremark.poi.ToHomeActivity;
+import com.example.photoremark.poi.ToVillageActivity;
 
 import org.supermap.fm.license.AppLicense;
 import org.supermap.fm.license.AppLicenseUtil;
@@ -40,7 +40,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 
-public class MainActivity extends AppCompatActivity implements OnClickListener {
+public class MainActivity extends FragmentActivity implements OnClickListener {
 
     private ImageView image;
     private Button takephoto;
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         image = (ImageView) this.findViewById(R.id.image);
         takephoto = (Button) this.findViewById(R.id.takephoto);
         takephoto.setOnClickListener(this);
-        takephoto.setClickable(false);
+        takephoto.setClickable(true);
         findViewById(R.id.create_word_home).setOnClickListener(this);
         findViewById(R.id.create_word_village).setOnClickListener(this);
         //暂时屏蔽许可证验证
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 try {
                     bm = scalePicture(path, options, systemInfo.screenWidth, systemInfo.screenWidth);
                 } catch (OutOfMemoryError err) {
-
+                    err.printStackTrace();
                 }
                 if (bm != null) {
                     image.setScaleType(ImageView.ScaleType.FIT_CENTER);
@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 startActivity(new Intent(this, ToHomeActivity.class));
                 break;
             case R.id.create_word_village:
-                startActivity(new Intent(this, ToHomeActivity.class));
+                startActivity(new Intent(this, ToVillageActivity.class));
                 break;
         }
     }
@@ -227,14 +227,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 try {
                     bitmap = MediaStore.Images.Media.getBitmap(
                             MainActivity.this.getContentResolver(), uri);
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
-                SimpleDateFormat formatter = new SimpleDateFormat(
-                        "yyyy-MM-dd HH:mm:ss");
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String str = formatter.format(System.currentTimeMillis())
                         .replace(" ", "T");
 

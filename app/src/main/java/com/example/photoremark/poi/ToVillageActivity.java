@@ -12,9 +12,9 @@ import android.webkit.WebView;
 import com.example.photoremark.R;
 
 /**
- * Created by Edison on 2016/3/3.
+ * Created by Edison on 2016/4/7.
  */
-public class ToHomeActivity extends FragmentActivity {
+public class ToVillageActivity extends FragmentActivity {
     private WebView webView;
 
     @Override
@@ -33,7 +33,7 @@ public class ToHomeActivity extends FragmentActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.menu_save:
                 //saveSource();
                 getValues();
@@ -59,7 +59,7 @@ public class ToHomeActivity extends FragmentActivity {
     private void initData() {
         /*webView.loadDataWithBaseURL(null, content, "text/html", Charset.defaultCharset().toString(), null);
         webView.addJavascriptInterface(new InJavaScriptLocalObj(), "local_obj");*/
-        webView.loadUrl("file:///android_asset/to_home.htm");
+        webView.loadUrl("file:///android_asset/to_village.htm");
         webView.addJavascriptInterface(new InJavaScriptLocalObj(), "stub");
     }
 
@@ -86,5 +86,4 @@ public class ToHomeActivity extends FragmentActivity {
             //HtmlToWord.saveAsWord(htmlSource);
         }
     }
-
 }

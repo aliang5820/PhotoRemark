@@ -10,6 +10,8 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by Edison on 2016/2/17.
@@ -30,7 +32,7 @@ public class HtmlToWord {
                 "</table>" +
                 "<form name=\"form1\" >\n" +
                 "你是否喜欢旅游？请选择：<br>\n" +
-                "<input type=\"radio\" name=\"radiobutton\" value=\"1\" checked> 喜欢\n" +
+                "<input type=\"radio\" name=\"radiobutton\" value=\"1\"> 喜欢\n" +
                 "<input type=\"radio\" name=\"radiobutton\" value=\"2\"> 不喜欢\n" +
                 "<input type=\"radio\" name=\"radiobutton\" value=\"3\"> 无所谓<br>\n" +
                 "</form><br>\n" +
@@ -52,9 +54,11 @@ public class HtmlToWord {
                 // 检查目录是否存在
                 File fileDir = new File(path);
                 if (fileDir.exists()) {
-
+                    Date date = new Date();
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-hh:mm:ss");
+                    String currentTime = simpleDateFormat.format(date);
                     // 生成临时文件名称
-                    String fileName = "html.doc";
+                    String fileName = currentTime + "-html.doc";
                     byte b[] = content.getBytes("gbk");
                     ByteArrayInputStream bais = new ByteArrayInputStream(b);
                     POIFSFileSystem poifs = new POIFSFileSystem();
