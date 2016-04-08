@@ -305,8 +305,7 @@ public class VisitActivity extends FragmentActivity implements AdapterView.OnIte
              * 保存htm的value值
              */
             if (isEdit && !TextUtils.isEmpty(editFileName)) {
-                fileName = systemInfo.PATH_HTML_VALUE + editFileName;
-                FileUtil.writeFile(fileName, htmlValues);
+                FileUtil.writeFile(systemInfo.PATH_HTML_VALUE + editFileName, htmlValues);
             } else {
                 Date date = new Date();
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd[HH-mm-ss]");
@@ -337,12 +336,26 @@ public class VisitActivity extends FragmentActivity implements AdapterView.OnIte
                 for (String va : valuesArray) {
                     htmlSource = htmlSource.replace("value=\"" + va + "\"", "value=\"" + va + "\" checked");
                 }
-                htmlSource = htmlSource.replaceAll("<input type=\"text\"", "<label type=\"text\"");
+
+                for (int i = 1; i < 50; i++) {
+                    htmlSource = htmlSource.replaceAll("<input type=\"text\" id=\"" + i + "\"/>", "<u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>");
+                    if(htmlSource.contains("\" class=\"w250\"/>")) {
+                        htmlSource = htmlSource.replaceAll("<input type=\"text\" id=\"" + i + "\" class=\"w250\"/>", "<u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>");
+                    }
+                    if(htmlSource.contains("\" class=\"w200\"/>")) {
+                        htmlSource = htmlSource.replaceAll("<input type=\"text\" id=\"" + i + "\" class=\"w200\"/>", "<u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>");
+                    }
+                    if(htmlSource.contains("\" class=\"w50\"/>")) {
+                        htmlSource = htmlSource.replaceAll("<input type=\"text\" id=\"" + i + "\" class=\"w50\"/>", "<u>&nbsp;&nbsp;&nbsp;</u>");
+                    }
+                }
             }
             if (isEdit && !TextUtils.isEmpty(editFileName)) {
-                FileUtil.deleteFile(systemInfo.PATH_WORD_DOC + fileName);
+                FileUtil.deleteFile(systemInfo.PATH_WORD_DOC + editFileName);
+                PoiUtil.saveAsWord(systemInfo.PATH_WORD_DOC + editFileName, htmlSource);
+            } else {
+                PoiUtil.saveAsWord(systemInfo.PATH_WORD_DOC + fileName, htmlSource);
             }
-            PoiUtil.saveAsWord(systemInfo.PATH_WORD_DOC + fileName, htmlSource);
 
             //操作完毕，通知页面
             if (isEdit && !TextUtils.isEmpty(editFileName)) {

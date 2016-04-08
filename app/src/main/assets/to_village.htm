@@ -4,10 +4,16 @@
 <title>云南省领导干部遍访贫困村访谈问卷</title>
 <script type="text/javascript">
 	function getHtmlValues() {
-		//获取所有name为chk的多选框,返回一个多选框数组
-		var chks = document.form.chk;
 		//把选中的多选框的值拼接成字符串
 		var str = "";
+		//获取该表单下的所有input标签
+		for (var j = 1; j < 50; j++) {
+			str += document.getElementById("" + j).value + ",";
+		}
+		str += "$_$";
+		
+		//获取所有name为chk的多选框,返回一个多选框数组
+		var chks = document.form.chk;
 		//循环多选框数组
 		for (var i = 0; i < chks.length; i++) {
 			//如果多选框被选中，则把值累计到str中
@@ -15,8 +21,18 @@
 				str += chks[i].value + ",";
 			}
 		}
+		alert(str);
 		//用接口stub, 通过调用内部类中的方法callBackAndroid给java传回result。
 		window.stub.callBackAndroid(str);
+	}
+	
+	function getHtmlValues1() {
+		var str = "";
+		str += document.getElementById("" + 1).value + ",";
+		str += document.getElementById("" + 2).value + ",";
+		str += document.getElementById("" + 3).value + ",";
+		str += document.getElementById("" + 4).value + ",";
+		alert(str);
 	}
 </script>
 <style type="text/css">
@@ -32,6 +48,8 @@
 <b>云南省领导干部遍访贫困村访谈问卷</b>
 </div>
 <br>
+<a href="javascript:getHtmlValues1();" class="btn ps-cs6">按钮</a>
+
 <form name="form">
 <input type="text" id="1"/>市（州）
 <input type="text" id="2"/>县
