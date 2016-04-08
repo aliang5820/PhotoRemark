@@ -1,21 +1,21 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>ÔÆÄÏÊ¡Áìµ¼¸É²¿±é·ÃÆ¶À§´å·ÃÌ¸ÎÊ¾í</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>äº‘å—çœé¢†å¯¼å¹²éƒ¨éè®¿è´«å›°æ‘è®¿è°ˆé—®å·</title>
 <script type="text/javascript">
 	function getHtmlValues() {
-		//»ñÈ¡ËùÓÐnameÎªchkµÄ¶àÑ¡¿ò,·µ»ØÒ»¸ö¶àÑ¡¿òÊý×é
+		//èŽ·å–æ‰€æœ‰nameä¸ºchkçš„å¤šé€‰æ¡†,è¿”å›žä¸€ä¸ªå¤šé€‰æ¡†æ•°ç»„
 		var chks = document.form.chk;
-		//°ÑÑ¡ÖÐµÄ¶àÑ¡¿òµÄÖµÆ´½Ó³É×Ö·û´®
+		//æŠŠé€‰ä¸­çš„å¤šé€‰æ¡†çš„å€¼æ‹¼æŽ¥æˆå­—ç¬¦ä¸²
 		var str = "";
-		//Ñ­»·¶àÑ¡¿òÊý×é
+		//å¾ªçŽ¯å¤šé€‰æ¡†æ•°ç»„
 		for (var i = 0; i < chks.length; i++) {
-			//Èç¹û¶àÑ¡¿ò±»Ñ¡ÖÐ£¬Ôò°ÑÖµÀÛ¼Æµ½strÖÐ
+			//å¦‚æžœå¤šé€‰æ¡†è¢«é€‰ä¸­ï¼Œåˆ™æŠŠå€¼ç´¯è®¡åˆ°strä¸­
 			if (chks[i].checked == true) {
 				str += chks[i].value + ",";
 			}
 		}
-		//ÓÃ½Ó¿Ústub, Í¨¹ýµ÷ÓÃÄÚ²¿ÀàÖÐµÄ·½·¨callBackAndroid¸øjava´«»Øresult¡£
+		//ç”¨æŽ¥å£stub, é€šè¿‡è°ƒç”¨å†…éƒ¨ç±»ä¸­çš„æ–¹æ³•callBackAndroidç»™javaä¼ å›žresultã€‚
 		window.stub.callBackAndroid(str);
 	}
 </script>
@@ -27,111 +27,111 @@
 </style>
 </head>
 <body>
-<b>¸½¼þ1</b>
+<b>é™„ä»¶1</b>
 <div align="center" style="font-size:18.0pt">
-<b>ÔÆÄÏÊ¡Áìµ¼¸É²¿±é·ÃÆ¶À§´å·ÃÌ¸ÎÊ¾í</b>
+<b>äº‘å—çœé¢†å¯¼å¹²éƒ¨éè®¿è´«å›°æ‘è®¿è°ˆé—®å·</b>
 </div>
 <br>
 <form name="form">
-<input type="text" id="1"/>ÊÐ£¨ÖÝ£©
-<input type="text" id="2"/>ÏØ
-<input type="text" id="3"/>ÏçÕò
-<input type="text" id="4"/>´å<br>
-·Ã ÎÊ Õß£ºÐÕÃû£º<input type="text" id="5"/>
-µ¥Î»£º<input type="text" id="6"/>
-Ö°Îñ£º<input type="text" id="7"/><br>
-±»·ÃÎÊÕß£ºÐÕÃû£º<input type="text" id="8"/>
-ÐÔ±ð£º<input type="text" id="9"/>
-ÄêÁä£º<input type="text" id="10"/><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Éí·Ý£¨´å¸É²¿»ò´åÃñ£©£º<input type="text" id="11"/>
-ÁªÏµµç»°£º<input type="text" id="12" class="w200"/><br>
-¾­¶È£º<input type="text" id="13" class="w200"/>
-Î³¶È£º<input type="text" id="14" class="w200"/><br>
-<b>Ò»¡¢Æ¶À§´å»ù±¾Çé¿ö</b><br>
-£¨Ò»£©ÓÐ×ÔÈ»´å<input type="text" id="15" class="w50"/>¸ö£¬<input type="text" id="16" class="w50"/>»§<input type="text" id="17" class="w50"/>ÈË¡£ÀÍ¶¯Á¦<input type="text" id="18" class="w50"/>ÈË£¬ÆäÖÐÍâ³öÎñ¹¤<input type="text" id="19" class="w50"/>ÈË¡£Æ¶À§ÈË¿Ú<input type="text" id="20" class="w50"/>»§<input type="text" id="21" class="w50"/>ÈË£¬Æ¶À§·¢ÉúÂÊ<input type="text" id="22" class="w50"/>%¡£µÍ±£ÈË¿Ú<input type="text" id="23" class="w50"/>»§<input type="text" id="24" class="w50"/>ÈË£¬ÆäÖÐÎå±£»§¡¢µÍ±£»§<input type="text" id="25" class="w50"/>»§<input type="text" id="26" class="w50"/>ÈË¡£<br>
-£¨¶þ£©¹úÍÁÃæ»ý<input type="text" id="14" class="w50"/>Æ½·½¹«Àï£¬Ìï<input type="text" id="14" class="w50"/>Ä¶£¬ÍÁ<input type="text" id="14" class="w50"/>Ä¶£¬ÁÖµØÃæ»ý<input type="text" id="14" class="w50"/>Ä¶£¬ÁÖµØ¹ûÔ°<input type="text" id="14" class="w50"/>Ä¶£¬»ÄÉ½»ÄÆÂ<input type="text" id="14" class="w50"/>Ä¶¡£Ö÷Òª²úÒµ<input type="text" id="27" class="w200"/>£¬·¢Õ¹²úÒµµÄÆ¶À§»§ÓÐ<input type="text" id="28" class="w50"/>»§¡£<br>
-£¨Èý£©2014ÄêÅ©´å¾ÓÃñÈË¾ù¿ÉÖ§ÅäÊÕÈë<input type="text" id="29" class="w50"/>Ôª¡£<input type="text" id="30" class="w50"/>£¨Ìî¡°ÓÐ¡±»ò¡°ÎÞ¡±£©´å¼¯Ìå¾­¼Ã×éÖ¯£¨¼´Å©ÃñºÏ×÷Éç£©£¿ÈçÓÐ£¬ÓÐ<input type="text" id="31" class="w50"/>¸ö£¬²Î¼ÓºÏ×÷ÉçµÄÆ¶À§»§ÓÐ<input type="text" id="32" class="w50"/>»§£¬ÉÏÄê´å¼¶¼¯Ìå¾­¼ÃÊÕÈë<input type="text" id="33" class="w50"/>ÍòÔª¡£<br>
-£¨ËÄ£©»ù´¡ÉèÊ©½¨ÉèÇé¿ö<br>
-1¡¢ÐÐÕþ´åµ½ÏçÕòËùÔÚµØÊÇ·ñÍ¨Á¤Çà£¨Ë®Äà£©Â·£¿<br>
-<input type="checkbox" name="chk" value="1">Í¨&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="2">²»Í¨&nbsp;&nbsp;
-ÈçÍ¨£¬ÓÐ<input type="text" id="34" class="w50"/>¹«Àï¡£<br>
-2¡¢ÓÐ<input type="text" id="35" class="w50"/>¸ö×ÔÈ»´åµÀÂ·Ó²»¯¡£<br>
-3¡¢ÐÐÕþ´åÊÇ·ñÓÐÎÀÉúÊÒ£¿<br>
-<input type="checkbox" name="chk" value="3">ÓÐ&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="4">·ñ&nbsp;&nbsp;<br>
-4¡¢ÐÐÕþ´åÊÇ·ñÓÐÎÄ»¯ÊÒ£¿<br>
-<input type="checkbox" name="chk" value="5">ÓÐ&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="6">·ñ&nbsp;&nbsp;<br>
-5¡¢ÐÐÕþ´åÊÇ·ñÍ¨¹ã²¥µçÊÓ<br>
-<input type="checkbox" name="chk" value="7">ÓÐ&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="8">·ñ&nbsp;&nbsp;<br>
-6¡¢ÐÐÕþ´åÊÇ·ñÍ¨Í¨¿í´ø£¿<br>
-<input type="checkbox" name="chk" value="9">ÓÐ&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="10">·ñ&nbsp;&nbsp;<br>
-7¡¢Ã»ÓÐ´ïµ½°²È«ÒûË®µÄÓÐ<input type="text" id="36" class="w50"/>»§¡£<br>
-8¡¢ÎÞ×¡·¿»ò×¡Î£·¿µÄÓÐ<input type="text" id="37" class="w50"/>»§¡£<br>
-£¨Îå£©´åÀïÊÇ·ñ·¢Éú¹ýÒÔÏÂÓ°ÏìÉç»áÎÈ¶¨µÄÎÊÌâ£¿<br>
-<input type="checkbox" name="chk" value="11">Ã»ÓÐ&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="12">¾­¼ÃÀà&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="13">°²È«Éú²úÀà&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="14">ÖÎ°²Àà&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="15">ÐÌÊÂÀà&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="16">ÆäËû<br>
-£¨Áù£©×¤´åºÍ½á¶Ô°ï·ö¹¤×÷¿ªÕ¹Çé¿ö<br>
-1¡¢´åÀïÊÇ·ñÓÐ×¤´å¹¤×÷¶Ó£¿<br>
-<input type="checkbox" name="chk" value="17">ÓÐ&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="18">Ã»ÓÐ&nbsp;&nbsp;<br>
-2¡¢×¤´å¸É²¿ÊÇ·ñ°ïÖú´åÀïÄâ¶¨·¢Õ¹Ë¼Â·£¿<br>
-<input type="checkbox" name="chk" value="19">ÓÐ&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="20">·ñ&nbsp;&nbsp;<br>
-3¡¢×¤´å¸É²¿ÊÇ·ñ°ïÖú´åÀï½â¾öÊµ¼ÊÎÊÌâ£¿<br>
-<input type="checkbox" name="chk" value="21">ÓÐ&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="22">·ñ&nbsp;&nbsp;<br>
-4¡¢ÊÇ·ñ´åÀïµÄËùÓÐÆ¶À§»§¶¼ÓÐ¸É²¿½á¶Ô°ï·ö£¿<br>
-<input type="checkbox" name="chk" value="23">ÓÐ&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="24">·ñ&nbsp;&nbsp;<br>
-ÈçÑ¡¡°ÊÇ¡±£¬½á¶Ô¸É²¿Ã¿ÄêÀ´<input type="text" id="38" class="w50"/>´Î£»ÈçÑ¡¡°·ñ¡±£¬ÓÐ<input type="text" id="39" class="w50"/>»§Ã»ÓÐ¸É²¿½á¶Ô°ï·ö¡£<br>
-¶þ¡¢ÖÂÆ¶Ô­Òò<br>
-£¨Áù£©µ¼ÖÂ±¾´åÆ¶À§µÄÔ­Òò£¨¿É¶àÑ¡£©<br>
-<input type="checkbox" name="chk" value="25">½»Í¨²»±ã&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="26">ÒûË®À§ÄÑ&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="27">Éç»áÊÂÒµÂäºó&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="28">ÓÃµçÀ§ÄÑ&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="29">Í¨Ñ¶ÉèÊ©Âäºó&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="30">È±ÉÙÀÍ¶¯Á¦&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="31">È±ÉÙÖÂ¸»µÄ°ì·¨&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="32">È±¼¼Êõ&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="33">¿´²¡²»·½±ã&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="34">×ÔÈ»ÔÖº¦»òÍ»·¢ÊÂ¼þ&nbsp;&nbsp;
-<input type="checkbox" name="chk" value="35">ÆäËû&nbsp;&nbsp;<br>
-Èý¡¢°ï·öÐèÇó<br>
-£¨Æß£©Áù¸öµ½´åµ½»§ºÍÁù¸öÐ¡¿µ½¨Éè£¨¿É¶àÑ¡£©<br>
-<input type="checkbox" name="chk" value="36">½á¶Ô°ï·ö
-<input type="checkbox" name="chk" value="37">²úÒµ·¢Õ¹
-<input type="checkbox" name="chk" value="38">¹¤Òµ»¯´ø¶¯
-<input type="checkbox" name="chk" value="39">³ÇÕò»¯´ø¶¯
-<input type="checkbox" name="chk" value="40">ÂÃÓÎÒµ´ø¶¯
-<input type="checkbox" name="chk" value="41">É½µØ¸ßÐ§Å©Òµ´ø¶¯
-<input type="checkbox" name="chk" value="42">½¨Öþ½¨²ÄÒµ´ø¶¯
-<input type="checkbox" name="chk" value="43">µÚÈý²úÒµ
-<input type="checkbox" name="chk" value="44">½ÌÓýÅàÑµ  
-<input type="checkbox" name="chk" value="45">´å×éµÀÂ·Ó²»¯
-<input type="checkbox" name="chk" value="46">²úÒµÂ·
-<input type="checkbox" name="chk" value="47">±ãÃñÇÅ½¨Éè
-<input type="checkbox" name="chk" value="48">°²È«ÒûË®
-<input type="checkbox" name="chk" value="49">ÉúÌ¬ÒÆÃñ°áÇ¨
-<input type="checkbox" name="chk" value="50">µçÍøÉý¼¶¸ÄÔì
-<input type="checkbox" name="chk" value="51">½â¾öµç»°»ò¿í´ø
-<input type="checkbox" name="chk" value="52">´åÕ¯ÕûÖÎ<br>
-£¨°Ë£©ÆäËûÐèÇó£¨¿É¶àÑ¡£©<br>
-<input type="checkbox" name="chk" value="53">´å¼¶¼¯Ìå¾­¼Ã×éÖ¯½¨Éè
-<input type="checkbox" name="chk" value="54">Ñ§Ð£½¨Éè
-<input type="checkbox" name="chk" value="55">ÎÀÉúÊÒ½¨Éè
-<input type="checkbox" name="chk" value="56">ÎÄ»¯ÊÒ½¨Éè
-<input type="checkbox" name="chk" value="57">Å©¼ÒÊéÎÝ½¨Éè
-<input type="checkbox" name="chk" value="58">ÆäËû<br>
-ËÄ¡¢±¾´å»ù±¾Í¼Æ¬×ÊÁÏ£¨µç×Ó°æÉÏ´«¡°ÔÆÄÏÊ¡ÃñÕþÍø¡±£©<br>
+<input type="text" id="1"/>å¸‚ï¼ˆå·žï¼‰
+<input type="text" id="2"/>åŽ¿
+<input type="text" id="3"/>ä¹¡é•‡
+<input type="text" id="4"/>æ‘<br>
+è®¿ é—® è€…ï¼šå§“åï¼š<input type="text" id="5"/>
+å•ä½ï¼š<input type="text" id="6"/>
+èŒåŠ¡ï¼š<input type="text" id="7"/><br>
+è¢«è®¿é—®è€…ï¼šå§“åï¼š<input type="text" id="8"/>
+æ€§åˆ«ï¼š<input type="text" id="9"/>
+å¹´é¾„ï¼š<input type="text" id="10"/><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;èº«ä»½ï¼ˆæ‘å¹²éƒ¨æˆ–æ‘æ°‘ï¼‰ï¼š<input type="text" id="11"/>
+è”ç³»ç”µè¯ï¼š<input type="text" id="12" class="w200"/><br>
+ç»åº¦ï¼š<input type="text" id="13" class="w200"/>
+çº¬åº¦ï¼š<input type="text" id="14" class="w200"/><br>
+<b>ä¸€ã€è´«å›°æ‘åŸºæœ¬æƒ…å†µ</b><br>
+ï¼ˆä¸€ï¼‰æœ‰è‡ªç„¶æ‘<input type="text" id="15" class="w50"/>ä¸ªï¼Œ<input type="text" id="16" class="w50"/>æˆ·<input type="text" id="17" class="w50"/>äººã€‚åŠ³åŠ¨åŠ›<input type="text" id="18" class="w50"/>äººï¼Œå…¶ä¸­å¤–å‡ºåŠ¡å·¥<input type="text" id="19" class="w50"/>äººã€‚è´«å›°äººå£<input type="text" id="20" class="w50"/>æˆ·<input type="text" id="21" class="w50"/>äººï¼Œè´«å›°å‘ç”ŸçŽ‡<input type="text" id="22" class="w50"/>%ã€‚ä½Žä¿äººå£<input type="text" id="23" class="w50"/>æˆ·<input type="text" id="24" class="w50"/>äººï¼Œå…¶ä¸­äº”ä¿æˆ·ã€ä½Žä¿æˆ·<input type="text" id="25" class="w50"/>æˆ·<input type="text" id="26" class="w50"/>äººã€‚<br>
+ï¼ˆäºŒï¼‰å›½åœŸé¢ç§¯<input type="text" id="14" class="w50"/>å¹³æ–¹å…¬é‡Œï¼Œç”°<input type="text" id="14" class="w50"/>äº©ï¼ŒåœŸ<input type="text" id="14" class="w50"/>äº©ï¼Œæž—åœ°é¢ç§¯<input type="text" id="14" class="w50"/>äº©ï¼Œæž—åœ°æžœå›­<input type="text" id="14" class="w50"/>äº©ï¼Œè’å±±è’å¡<input type="text" id="14" class="w50"/>äº©ã€‚ä¸»è¦äº§ä¸š<input type="text" id="27" class="w200"/>ï¼Œå‘å±•äº§ä¸šçš„è´«å›°æˆ·æœ‰<input type="text" id="28" class="w50"/>æˆ·ã€‚<br>
+ï¼ˆä¸‰ï¼‰2014å¹´å†œæ‘å±…æ°‘äººå‡å¯æ”¯é…æ”¶å…¥<input type="text" id="29" class="w50"/>å…ƒã€‚<input type="text" id="30" class="w50"/>ï¼ˆå¡«â€œæœ‰â€æˆ–â€œæ— â€ï¼‰æ‘é›†ä½“ç»æµŽç»„ç»‡ï¼ˆå³å†œæ°‘åˆä½œç¤¾ï¼‰ï¼Ÿå¦‚æœ‰ï¼Œæœ‰<input type="text" id="31" class="w50"/>ä¸ªï¼Œå‚åŠ åˆä½œç¤¾çš„è´«å›°æˆ·æœ‰<input type="text" id="32" class="w50"/>æˆ·ï¼Œä¸Šå¹´æ‘çº§é›†ä½“ç»æµŽæ”¶å…¥<input type="text" id="33" class="w50"/>ä¸‡å…ƒã€‚<br>
+ï¼ˆå››ï¼‰åŸºç¡€è®¾æ–½å»ºè®¾æƒ…å†µ<br>
+1ã€è¡Œæ”¿æ‘åˆ°ä¹¡é•‡æ‰€åœ¨åœ°æ˜¯å¦é€šæ²¥é’ï¼ˆæ°´æ³¥ï¼‰è·¯ï¼Ÿ<br>
+<input type="checkbox" name="chk" value="1">é€š&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="2">ä¸é€š&nbsp;&nbsp;
+å¦‚é€šï¼Œæœ‰<input type="text" id="34" class="w50"/>å…¬é‡Œã€‚<br>
+2ã€æœ‰<input type="text" id="35" class="w50"/>ä¸ªè‡ªç„¶æ‘é“è·¯ç¡¬åŒ–ã€‚<br>
+3ã€è¡Œæ”¿æ‘æ˜¯å¦æœ‰å«ç”Ÿå®¤ï¼Ÿ<br>
+<input type="checkbox" name="chk" value="3">æœ‰&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="4">å¦&nbsp;&nbsp;<br>
+4ã€è¡Œæ”¿æ‘æ˜¯å¦æœ‰æ–‡åŒ–å®¤ï¼Ÿ<br>
+<input type="checkbox" name="chk" value="5">æœ‰&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="6">å¦&nbsp;&nbsp;<br>
+5ã€è¡Œæ”¿æ‘æ˜¯å¦é€šå¹¿æ’­ç”µè§†<br>
+<input type="checkbox" name="chk" value="7">æœ‰&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="8">å¦&nbsp;&nbsp;<br>
+6ã€è¡Œæ”¿æ‘æ˜¯å¦é€šé€šå®½å¸¦ï¼Ÿ<br>
+<input type="checkbox" name="chk" value="9">æœ‰&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="10">å¦&nbsp;&nbsp;<br>
+7ã€æ²¡æœ‰è¾¾åˆ°å®‰å…¨é¥®æ°´çš„æœ‰<input type="text" id="36" class="w50"/>æˆ·ã€‚<br>
+8ã€æ— ä½æˆ¿æˆ–ä½å±æˆ¿çš„æœ‰<input type="text" id="37" class="w50"/>æˆ·ã€‚<br>
+ï¼ˆäº”ï¼‰æ‘é‡Œæ˜¯å¦å‘ç”Ÿè¿‡ä»¥ä¸‹å½±å“ç¤¾ä¼šç¨³å®šçš„é—®é¢˜ï¼Ÿ<br>
+<input type="checkbox" name="chk" value="11">æ²¡æœ‰&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="12">ç»æµŽç±»&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="13">å®‰å…¨ç”Ÿäº§ç±»&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="14">æ²»å®‰ç±»&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="15">åˆ‘äº‹ç±»&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="16">å…¶ä»–<br>
+ï¼ˆå…­ï¼‰é©»æ‘å’Œç»“å¯¹å¸®æ‰¶å·¥ä½œå¼€å±•æƒ…å†µ<br>
+1ã€æ‘é‡Œæ˜¯å¦æœ‰é©»æ‘å·¥ä½œé˜Ÿï¼Ÿ<br>
+<input type="checkbox" name="chk" value="17">æœ‰&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="18">æ²¡æœ‰&nbsp;&nbsp;<br>
+2ã€é©»æ‘å¹²éƒ¨æ˜¯å¦å¸®åŠ©æ‘é‡Œæ‹Ÿå®šå‘å±•æ€è·¯ï¼Ÿ<br>
+<input type="checkbox" name="chk" value="19">æœ‰&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="20">å¦&nbsp;&nbsp;<br>
+3ã€é©»æ‘å¹²éƒ¨æ˜¯å¦å¸®åŠ©æ‘é‡Œè§£å†³å®žé™…é—®é¢˜ï¼Ÿ<br>
+<input type="checkbox" name="chk" value="21">æœ‰&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="22">å¦&nbsp;&nbsp;<br>
+4ã€æ˜¯å¦æ‘é‡Œçš„æ‰€æœ‰è´«å›°æˆ·éƒ½æœ‰å¹²éƒ¨ç»“å¯¹å¸®æ‰¶ï¼Ÿ<br>
+<input type="checkbox" name="chk" value="23">æœ‰&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="24">å¦&nbsp;&nbsp;<br>
+å¦‚é€‰â€œæ˜¯â€ï¼Œç»“å¯¹å¹²éƒ¨æ¯å¹´æ¥<input type="text" id="38" class="w50"/>æ¬¡ï¼›å¦‚é€‰â€œå¦â€ï¼Œæœ‰<input type="text" id="39" class="w50"/>æˆ·æ²¡æœ‰å¹²éƒ¨ç»“å¯¹å¸®æ‰¶ã€‚<br>
+äºŒã€è‡´è´«åŽŸå› <br>
+ï¼ˆå…­ï¼‰å¯¼è‡´æœ¬æ‘è´«å›°çš„åŽŸå› ï¼ˆå¯å¤šé€‰ï¼‰<br>
+<input type="checkbox" name="chk" value="25">äº¤é€šä¸ä¾¿&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="26">é¥®æ°´å›°éš¾&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="27">ç¤¾ä¼šäº‹ä¸šè½åŽ&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="28">ç”¨ç”µå›°éš¾&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="29">é€šè®¯è®¾æ–½è½åŽ&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="30">ç¼ºå°‘åŠ³åŠ¨åŠ›&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="31">ç¼ºå°‘è‡´å¯Œçš„åŠžæ³•&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="32">ç¼ºæŠ€æœ¯&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="33">çœ‹ç—…ä¸æ–¹ä¾¿&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="34">è‡ªç„¶ç¾å®³æˆ–çªå‘äº‹ä»¶&nbsp;&nbsp;
+<input type="checkbox" name="chk" value="35">å…¶ä»–&nbsp;&nbsp;<br>
+ä¸‰ã€å¸®æ‰¶éœ€æ±‚<br>
+ï¼ˆä¸ƒï¼‰å…­ä¸ªåˆ°æ‘åˆ°æˆ·å’Œå…­ä¸ªå°åº·å»ºè®¾ï¼ˆå¯å¤šé€‰ï¼‰<br>
+<input type="checkbox" name="chk" value="36">ç»“å¯¹å¸®æ‰¶
+<input type="checkbox" name="chk" value="37">äº§ä¸šå‘å±•
+<input type="checkbox" name="chk" value="38">å·¥ä¸šåŒ–å¸¦åŠ¨
+<input type="checkbox" name="chk" value="39">åŸŽé•‡åŒ–å¸¦åŠ¨
+<input type="checkbox" name="chk" value="40">æ—…æ¸¸ä¸šå¸¦åŠ¨
+<input type="checkbox" name="chk" value="41">å±±åœ°é«˜æ•ˆå†œä¸šå¸¦åŠ¨
+<input type="checkbox" name="chk" value="42">å»ºç­‘å»ºæä¸šå¸¦åŠ¨
+<input type="checkbox" name="chk" value="43">ç¬¬ä¸‰äº§ä¸š
+<input type="checkbox" name="chk" value="44">æ•™è‚²åŸ¹è®­  
+<input type="checkbox" name="chk" value="45">æ‘ç»„é“è·¯ç¡¬åŒ–
+<input type="checkbox" name="chk" value="46">äº§ä¸šè·¯
+<input type="checkbox" name="chk" value="47">ä¾¿æ°‘æ¡¥å»ºè®¾
+<input type="checkbox" name="chk" value="48">å®‰å…¨é¥®æ°´
+<input type="checkbox" name="chk" value="49">ç”Ÿæ€ç§»æ°‘æ¬è¿
+<input type="checkbox" name="chk" value="50">ç”µç½‘å‡çº§æ”¹é€ 
+<input type="checkbox" name="chk" value="51">è§£å†³ç”µè¯æˆ–å®½å¸¦
+<input type="checkbox" name="chk" value="52">æ‘å¯¨æ•´æ²»<br>
+ï¼ˆå…«ï¼‰å…¶ä»–éœ€æ±‚ï¼ˆå¯å¤šé€‰ï¼‰<br>
+<input type="checkbox" name="chk" value="53">æ‘çº§é›†ä½“ç»æµŽç»„ç»‡å»ºè®¾
+<input type="checkbox" name="chk" value="54">å­¦æ ¡å»ºè®¾
+<input type="checkbox" name="chk" value="55">å«ç”Ÿå®¤å»ºè®¾
+<input type="checkbox" name="chk" value="56">æ–‡åŒ–å®¤å»ºè®¾
+<input type="checkbox" name="chk" value="57">å†œå®¶ä¹¦å±‹å»ºè®¾
+<input type="checkbox" name="chk" value="58">å…¶ä»–<br>
+å››ã€æœ¬æ‘åŸºæœ¬å›¾ç‰‡èµ„æ–™ï¼ˆç”µå­ç‰ˆä¸Šä¼ â€œäº‘å—çœæ°‘æ”¿ç½‘â€ï¼‰<br>
 </form>
 </body>
 </html>

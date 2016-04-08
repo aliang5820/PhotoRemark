@@ -23,6 +23,8 @@ public class SystemInfo extends Application {
     public String PATH_LOG = "";
     public String PATH_LICENSE = "";
     public String PATH_TEMP = "";
+    public String PATH_WORD_DOC = "";
+    public String PATH_HTML_VALUE = "";
 
     @Override
     public void onCreate() {
@@ -48,6 +50,8 @@ public class SystemInfo extends Application {
         PATH_LICENSE = Environment.getExternalStorageDirectory() + "/Watermark/license/";
         PATH_LOG = Environment.getExternalStorageDirectory() + "/Watermark/log/";
         PATH_TEMP = Environment.getExternalStorageDirectory() + "/Watermark/temp/";
+        PATH_WORD_DOC = Environment.getExternalStorageDirectory() + "/Watermark/word/";
+        PATH_HTML_VALUE = Environment.getExternalStorageDirectory() + "/Watermark/html/";
 
         // 先验证手机是否有sdcard
         String status = Environment.getExternalStorageState();
@@ -56,6 +60,8 @@ public class SystemInfo extends Application {
             File dir2 = new File(PATH_LICENSE);
             File dir3 = new File(PATH_LOG);
             File dir4 = new File(PATH_TEMP);
+            File dir5 = new File(PATH_WORD_DOC);
+            File dir6 = new File(PATH_HTML_VALUE);
             if (!dir1.exists()) {
                 dir1.mkdirs();
             }
@@ -68,10 +74,15 @@ public class SystemInfo extends Application {
             if (!dir4.exists()) {
                 dir4.mkdirs();
             }
+            if (!dir5.exists()) {
+                dir5.mkdirs();
+            }
+            if (!dir6.exists()) {
+                dir6.mkdirs();
+            }
         }
         LogCrash logCrash = LogCrash.getInstance();
         logCrash.init(getApplicationContext(), PATH_LOG);
-
     }
 
     // 单例模式中获取唯一的SystemInfo实例

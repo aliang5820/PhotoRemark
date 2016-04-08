@@ -28,8 +28,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.photoremark.poi.ToHomeActivity;
-import com.example.photoremark.poi.ToVillageActivity;
+import com.example.photoremark.poi.VisitActivity;
 
 import org.supermap.fm.license.AppLicense;
 import org.supermap.fm.license.AppLicenseUtil;
@@ -147,10 +146,14 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 }
                 break;
             case R.id.create_word_home:
-                startActivity(new Intent(this, ToHomeActivity.class));
+                Intent intent = new Intent(this, VisitActivity.class);
+                intent.putExtra(VisitActivity.EXTRA, VisitActivity.TO_HOME);
+                startActivity(intent);
                 break;
             case R.id.create_word_village:
-                startActivity(new Intent(this, ToVillageActivity.class));
+                Intent intent1 = new Intent(this, VisitActivity.class);
+                intent1.putExtra(VisitActivity.EXTRA, VisitActivity.TO_VILLAGE);
+                startActivity(intent1);
                 break;
         }
     }

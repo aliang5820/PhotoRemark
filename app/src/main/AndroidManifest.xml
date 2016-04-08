@@ -37,10 +37,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".poi.ToHomeActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".poi.ToVillageActivity"
+            android:name=".poi.VisitActivity"
             android:screenOrientation="landscape" />
     </application>
 

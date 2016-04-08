@@ -14,13 +14,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 
 /**
  * @author txc
  * @version 1.0
  */
 public class FileUtil {
+    private static final String TAG = FileUtil.class.getName();
+
     /**
      * 拷贝一个文件
      *
@@ -98,23 +99,39 @@ public class FileUtil {
     /**
      * 对文本文件进行写入操作
      */
-    public static boolean writeFile(String Filepath, String content) {
+    public static boolean writeFile(String filePath, String content) {
+        Log.e(TAG, "writeFile:" + filePath);
+        Log.e(TAG, "writeFileContent:" + content);
         //如果filePath是传递过来的参数，可以做一个后缀名称判断； 没有指定的文件名没有后缀，则自动保存为.txt格式
         boolean flag = false;
-        File mfile = new File(Filepath);
-        if (mfile.exists() && mfile.length() > 0) mfile.delete();
-        File file = new File(Filepath);
+        File mfile = new File(filePath);
+        if (mfile.exists() && mfile.length() > 0) {
+            mfile.delete();
+        }
+        File file = new File(filePath);
         if (!file.getParentFile().exists()) {
             file.getParentFile().mkdirs();
         }
+        FileOutputStream fos = null;
         try {
-            OutputStream outstream = new FileOutputStream(file);
-            OutputStreamWriter out = new OutputStreamWriter(outstream);
-            out.write(content.toString());
-            out.close();
+            file.createNewFile();
+            fos = new FileOutputStream(file);
+            fos.write(content.getBytes());
+            /*outstream = new FileOutputStream(file);
+            out = new OutputStreamWriter(outstream);
+            out.write(content.toString());*/
             flag = true;
-        } catch (java.io.IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (fos != null) {
+                    fos.flush();
+                    fos.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return flag;
     }
@@ -123,6 +140,7 @@ public class FileUtil {
      * 对文本文件进行读取操作
      */
     public static StringBuffer readFile(String path) {
+        Log.e(TAG, "readFile:" + path);
         StringBuffer content = new StringBuffer(); //文件内容字符串
         //打开文件
         File file = new File(path);
@@ -130,22 +148,37 @@ public class FileUtil {
         if (file.isDirectory() || !file.isFile()) {
             Log.v("readFile", "没有指定文本文件！");
         } else {
+            InputStream instream = null;
+            InputStreamReader inputreader = null;
+            BufferedReader buffreader = null;
             try {
-                InputStream instream = new FileInputStream(file);
-                if (instream != null) {
-                    InputStreamReader inputreader = new InputStreamReader(instream);
-                    BufferedReader buffreader = new BufferedReader(inputreader);
-                    String line;
-                    //分行读取
-                    while ((line = buffreader.readLine()) != null) {
-                        content.append(line + "\n");
-                    }
-                    instream.close();
+                instream = new FileInputStream(file);
+                inputreader = new InputStreamReader(instream);
+                buffreader = new BufferedReader(inputreader);
+                String line;
+                //分行读取
+                while ((line = buffreader.readLine()) != null) {
+                    content.append(line + "\n");
                 }
+                instream.close();
             } catch (java.io.FileNotFoundException e) {
                 Log.v("readFile", "文件不存在！");
             } catch (IOException e) {
                 e.printStackTrace();
+            } finally {
+                try {
+                    if (instream != null) {
+                        instream.close();
+                    }
+                    if (inputreader != null) {
+                        inputreader.close();
+                    }
+                    if (buffreader != null) {
+                        buffreader.close();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
         return content;
@@ -215,12 +248,17 @@ public class FileUtil {
     }
 
     public static boolean deleteFile(String sPath) {
+        Log.e(TAG, "deleteFile:" + sPath);
         boolean flag = false;
-        File file = new File(sPath);
-        // 路径为文件且不为空则进行删除
-        if (file.isFile() && file.exists()) {
-            file.delete();
-            flag = true;
+        try {
+            File file = new File(sPath);
+            // 路径为文件且不为空则进行删除
+            if (file.isFile() && file.exists()) {
+                file.delete();
+                flag = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return flag;
     }
@@ -279,5 +317,35 @@ public class FileUtil {
         }
         // 目录此时为空，可以删除
         return dir.delete();
+    }
+
+    /**
+     * 获取assets中的文件数据
+     *
+     * @param context
+     * @param fileName
+     * @return
+     */
+    public static String getStringFromAssets(Context context, String fileName) {
+        String result = "";
+        InputStream in = null;
+        try {
+            in = context.getAssets().open(fileName);  //获得AssetManger 对象, 调用其open 方法取得  对应的inputStream对象
+            int size = in.available();//取得数据流的数据大小
+            byte[] buffer = new byte[size];
+            in.read(buffer);
+            result = new String(buffer, "utf-8");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (in != null) {
+                    in.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
     }
 }
