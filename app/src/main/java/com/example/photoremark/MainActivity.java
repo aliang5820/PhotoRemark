@@ -38,6 +38,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MainActivity extends FragmentActivity implements OnClickListener {
 
@@ -62,11 +63,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         image = (ImageView) this.findViewById(R.id.image);
         takephoto = (Button) this.findViewById(R.id.takephoto);
         takephoto.setOnClickListener(this);
-        takephoto.setClickable(true);
+        takephoto.setClickable(false);
         findViewById(R.id.create_word_home).setOnClickListener(this);
         findViewById(R.id.create_word_village).setOnClickListener(this);
         //暂时屏蔽许可证验证
-        //initresouceFile();
+        initresouceFile();
     }
 
     private Handler handler = new Handler() {
@@ -202,9 +203,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 super.run();
                 // 写入设备deviceId，每次进来都更新文件
                 deviceIdFile = systemInfo.PATH_LICENSE + "device.txt";
-                TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-                String deviceId = tm.getDeviceId().trim();// 获取设备id 去除空格
-                FileUtil.writeFile(deviceIdFile, deviceId);// 写文件,不管文件是否存在每次都要写
+                //TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+                //String deviceId = tm.getDeviceId().trim();// 获取设备id 去除空格
+                //FileUtil.writeFile(deviceIdFile, deviceId);// 写文件,不管文件是否存在每次都要写
                 handler.sendEmptyMessage(INITOVER);
             }
         };
@@ -235,8 +236,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 }
 
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                String str = formatter.format(System.currentTimeMillis())
-                        .replace(" ", "T");
+                SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd[HH-mm-ss]");
+                Date date = new Date();
+                String str = formatter.format(date.getTime()).replace(" ", "T");
 
                 PhotoWatermark photoWatermark = new PhotoWatermark();
 
@@ -248,11 +250,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                         + "″ ";
 
                 String alt = roundDouble(systemInfo.naviGps.dAltitude, 2) + "";
-                String name = String.valueOf(System.currentTimeMillis());
+                String name = formatter1.format(date.getTime());
                 String path = systemInfo.PATH_CAMERA + name + ".jpg";
-                photoWatermark.addWordToBitmap(bitmap, str, lon, lat, alt,
-                        handler, path);
-
+                photoWatermark.addWordToBitmap(bitmap, str, lon, lat, alt, handler, path);
             }
         };
         tr.start();

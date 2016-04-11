@@ -238,9 +238,21 @@ public class VisitActivity extends FragmentActivity implements AdapterView.OnIte
                 break;
         }
         if (!TextUtils.isEmpty(values)) {
-            String[] valuesArray = values.split(",");
-            for (String va : valuesArray) {
-                htmlSource = htmlSource.replace("value=\"" + va + "\"", "value=\"" + va + "\" checked");
+            String[] arrays = values.split("\\$_\\$");
+            String inputArrays = arrays[0];
+            if(arrays.length == 2) {
+                String checkBoxArrays = arrays[1];
+                //选择框
+                String[] checkValuesArray = checkBoxArrays.split(",");
+                for (String va : checkValuesArray) {
+                    htmlSource = htmlSource.replace("value=\"" + va + "\"", "value=\"" + va + "\" checked");
+                }
+            }
+            //输入框
+            String[] inputValuesArray = inputArrays.split(",");
+            for (int i = 0; i < inputValuesArray.length; i++) {
+                String va = inputValuesArray[i];
+                htmlSource = htmlSource.replaceAll("id=\"" + (i + 1) + "\"", "id=\"" + (i + 1) + "\" value=\"" + va + "\"");
             }
         }
         //显示到webView上
@@ -297,71 +309,85 @@ public class VisitActivity extends FragmentActivity implements AdapterView.OnIte
 
         @JavascriptInterface
         public void callBackAndroid(final String htmlValues) {
-            Log.e("edison", Thread.currentThread().getName() + ":" + htmlValues);
-            //htmlSource = htmlSource.replace("value=\"2\"", "value=\"2\" checked");
-            String htmlSource = "";//html源文件
-            String fileName = "";
-            /**
-             * 保存htm的value值
-             */
-            if (isEdit && !TextUtils.isEmpty(editFileName)) {
-                FileUtil.writeFile(systemInfo.PATH_HTML_VALUE + editFileName, htmlValues);
-            } else {
-                Date date = new Date();
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd[HH-mm-ss]");
-                if (extra == TO_HOME) {
-                    fileName = "home-" + dateFormat.format(date) + ".doc";
+
+            try {
+                Log.e("edison", Thread.currentThread().getName() + ":" + htmlValues);
+                //htmlSource = htmlSource.replace("value=\"2\"", "value=\"2\" checked");
+                String htmlSource;//html源文件
+                String fileName = "";
+                /**
+                 * 保存htm的value值
+                 */
+                if (isEdit && !TextUtils.isEmpty(editFileName)) {
+                    FileUtil.writeFile(systemInfo.PATH_HTML_VALUE + editFileName, htmlValues);
                 } else {
-                    fileName = "village-" + dateFormat.format(date) + ".doc";
-                }
-                FileUtil.writeFile(systemInfo.PATH_HTML_VALUE + fileName, htmlValues);
-            }
-
-            /**
-             * 获取html源文件
-             */
-            if (extra == TO_HOME) {
-                //获取到户的html源文件
-                htmlSource = FileUtil.getStringFromAssets(mContext, "to_home.htm");
-            } else {
-                //获取到村的html源文件
-                htmlSource = FileUtil.getStringFromAssets(mContext, "to_village.htm");
-            }
-
-            /**
-             * 保存word文档
-             */
-            if (!TextUtils.isEmpty(htmlValues)) {
-                String[] valuesArray = htmlValues.split(",");
-                for (String va : valuesArray) {
-                    htmlSource = htmlSource.replace("value=\"" + va + "\"", "value=\"" + va + "\" checked");
+                    Date date = new Date();
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd[HH-mm-ss]");
+                    if (extra == TO_HOME) {
+                        fileName = "home-" + dateFormat.format(date) + ".doc";
+                    } else {
+                        fileName = "village-" + dateFormat.format(date) + ".doc";
+                    }
+                    FileUtil.writeFile(systemInfo.PATH_HTML_VALUE + fileName, htmlValues);
                 }
 
-                for (int i = 1; i < 50; i++) {
-                    htmlSource = htmlSource.replaceAll("<input type=\"text\" id=\"" + i + "\"/>", "<u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>");
-                    if(htmlSource.contains("\" class=\"w250\"/>")) {
-                        htmlSource = htmlSource.replaceAll("<input type=\"text\" id=\"" + i + "\" class=\"w250\"/>", "<u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>");
+                /**
+                 * 获取html源文件
+                 */
+                if (extra == TO_HOME) {
+                    //获取到户的html源文件
+                    htmlSource = FileUtil.getStringFromAssets(mContext, "to_home.htm");
+                } else {
+                    //获取到村的html源文件
+                    htmlSource = FileUtil.getStringFromAssets(mContext, "to_village.htm");
+                }
+
+                /**
+                 * 保存word文档
+                 */
+                if (!TextUtils.isEmpty(htmlValues)) {
+                    String[] arrays = htmlValues.split("\\$_\\$");
+
+                    String inputArrays = arrays[0];
+                    if(arrays.length == 2) {
+                        String checkBoxArrays = arrays[1];
+                        //选择框
+                        String[] checkValuesArray = checkBoxArrays.split(",");
+                        for (String va : checkValuesArray) {
+                            htmlSource = htmlSource.replace("value=\"" + va + "\"", "value=\"" + va + "\" checked");
+                        }
                     }
-                    if(htmlSource.contains("\" class=\"w200\"/>")) {
-                        htmlSource = htmlSource.replaceAll("<input type=\"text\" id=\"" + i + "\" class=\"w200\"/>", "<u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>");
-                    }
-                    if(htmlSource.contains("\" class=\"w50\"/>")) {
-                        htmlSource = htmlSource.replaceAll("<input type=\"text\" id=\"" + i + "\" class=\"w50\"/>", "<u>&nbsp;&nbsp;&nbsp;</u>");
+                    //输入框
+                    String[] inputValuesArray = inputArrays.split(",");
+                    for (int i = 0; i < inputValuesArray.length; i++) {
+                        String va = "<u>&nbsp;&nbsp;" + inputValuesArray[i] + "&nbsp;&nbsp;</u>";
+                        htmlSource = htmlSource.replaceAll("<input type=\"text\" id=\"" + (i + 1) + "\"/>", va);
+                        if (htmlSource.contains("\" class=\"w250\"/>")) {
+                            htmlSource = htmlSource.replaceAll("<input type=\"text\" id=\"" + (i + 1) + "\" class=\"w250\"/>", va);
+                        }
+                        if (htmlSource.contains("\" class=\"w200\"/>")) {
+                            htmlSource = htmlSource.replaceAll("<input type=\"text\" id=\"" + (i + 1) + "\" class=\"w200\"/>", va);
+                        }
+                        if (htmlSource.contains("\" class=\"w50\"/>")) {
+                            htmlSource = htmlSource.replaceAll("<input type=\"text\" id=\"" + (i + 1) + "\" class=\"w50\"/>", va);
+                        }
                     }
                 }
-            }
-            if (isEdit && !TextUtils.isEmpty(editFileName)) {
-                FileUtil.deleteFile(systemInfo.PATH_WORD_DOC + editFileName);
-                PoiUtil.saveAsWord(systemInfo.PATH_WORD_DOC + editFileName, htmlSource);
-            } else {
-                PoiUtil.saveAsWord(systemInfo.PATH_WORD_DOC + fileName, htmlSource);
-            }
+                if (isEdit && !TextUtils.isEmpty(editFileName)) {
+                    FileUtil.deleteFile(systemInfo.PATH_WORD_DOC + editFileName);
+                    PoiUtil.saveAsWord(systemInfo.PATH_WORD_DOC + editFileName, htmlSource);
+                } else {
+                    PoiUtil.saveAsWord(systemInfo.PATH_WORD_DOC + fileName, htmlSource);
+                }
 
-            //操作完毕，通知页面
-            if (isEdit && !TextUtils.isEmpty(editFileName)) {
-                Message.obtain(handler, EDIT_FINISH).sendToTarget();
-            } else {
-                Message.obtain(handler, SAVE_FINISH, fileName).sendToTarget();
+                //操作完毕，通知页面
+                if (isEdit && !TextUtils.isEmpty(editFileName)) {
+                    Message.obtain(handler, EDIT_FINISH).sendToTarget();
+                } else {
+                    Message.obtain(handler, SAVE_FINISH, fileName).sendToTarget();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

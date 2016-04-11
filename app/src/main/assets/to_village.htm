@@ -7,9 +7,51 @@
 		//把选中的多选框的值拼接成字符串
 		var str = "";
 		//获取该表单下的所有input标签
-		for (var j = 1; j < 50; j++) {
-			str += document.getElementById("" + j).value + ",";
-		}
+		str += document.getElementById("" + 1).value + " ,";
+		str += document.getElementById("" + 2).value + " ,";
+		str += document.getElementById("" + 3).value + " ,";
+		str += document.getElementById("" + 4).value + " ,";
+		str += document.getElementById("" + 5).value + " ,";
+		str += document.getElementById("" + 6).value + " ,";
+		str += document.getElementById("" + 7).value + " ,";
+		str += document.getElementById("" + 8).value + " ,";
+		str += document.getElementById("" + 9).value + " ,";
+		str += document.getElementById("" + 10).value + " ,";
+		str += document.getElementById("" + 11).value + " ,";
+		str += document.getElementById("" + 12).value + " ,";
+		str += document.getElementById("" + 13).value + " ,";
+		str += document.getElementById("" + 14).value + " ,";
+		str += document.getElementById("" + 15).value + " ,";
+		str += document.getElementById("" + 16).value + " ,";
+		str += document.getElementById("" + 17).value + " ,";
+		str += document.getElementById("" + 18).value + " ,";
+		str += document.getElementById("" + 19).value + " ,";
+		str += document.getElementById("" + 20).value + " ,";
+		str += document.getElementById("" + 21).value + " ,";
+		str += document.getElementById("" + 22).value + " ,";
+		str += document.getElementById("" + 23).value + " ,";
+		str += document.getElementById("" + 24).value + " ,";
+		str += document.getElementById("" + 25).value + " ,";
+		str += document.getElementById("" + 26).value + " ,";
+		str += document.getElementById("" + 27).value + " ,";
+		str += document.getElementById("" + 28).value + " ,";
+		str += document.getElementById("" + 29).value + " ,";
+		str += document.getElementById("" + 30).value + " ,";
+		str += document.getElementById("" + 31).value + " ,";
+		str += document.getElementById("" + 32).value + " ,";
+		str += document.getElementById("" + 33).value + " ,";
+		str += document.getElementById("" + 34).value + " ,";
+		str += document.getElementById("" + 35).value + " ,";
+		str += document.getElementById("" + 36).value + " ,";
+		str += document.getElementById("" + 37).value + " ,";
+		str += document.getElementById("" + 38).value + " ,";
+		str += document.getElementById("" + 39).value + " ,";
+		str += document.getElementById("" + 40).value + " ,";
+		str += document.getElementById("" + 41).value + " ,";
+		str += document.getElementById("" + 42).value + " ,";
+		str += document.getElementById("" + 43).value + " ,";
+		str += document.getElementById("" + 44).value + " ,";
+		str += document.getElementById("" + 45).value + " ";
 		str += "$_$";
 		
 		//获取所有name为chk的多选框,返回一个多选框数组
@@ -21,18 +63,8 @@
 				str += chks[i].value + ",";
 			}
 		}
-		alert(str);
 		//用接口stub, 通过调用内部类中的方法callBackAndroid给java传回result。
 		window.stub.callBackAndroid(str);
-	}
-	
-	function getHtmlValues1() {
-		var str = "";
-		str += document.getElementById("" + 1).value + ",";
-		str += document.getElementById("" + 2).value + ",";
-		str += document.getElementById("" + 3).value + ",";
-		str += document.getElementById("" + 4).value + ",";
-		alert(str);
 	}
 </script>
 <style type="text/css">
@@ -48,8 +80,6 @@
 <b>云南省领导干部遍访贫困村访谈问卷</b>
 </div>
 <br>
-<a href="javascript:getHtmlValues1();" class="btn ps-cs6">按钮</a>
-
 <form name="form">
 <input type="text" id="1"/>市（州）
 <input type="text" id="2"/>县
@@ -67,14 +97,14 @@
 纬度：<input type="text" id="14" class="w200"/><br>
 <b>一、贫困村基本情况</b><br>
 （一）有自然村<input type="text" id="15" class="w50"/>个，<input type="text" id="16" class="w50"/>户<input type="text" id="17" class="w50"/>人。劳动力<input type="text" id="18" class="w50"/>人，其中外出务工<input type="text" id="19" class="w50"/>人。贫困人口<input type="text" id="20" class="w50"/>户<input type="text" id="21" class="w50"/>人，贫困发生率<input type="text" id="22" class="w50"/>%。低保人口<input type="text" id="23" class="w50"/>户<input type="text" id="24" class="w50"/>人，其中五保户、低保户<input type="text" id="25" class="w50"/>户<input type="text" id="26" class="w50"/>人。<br>
-（二）国土面积<input type="text" id="14" class="w50"/>平方公里，田<input type="text" id="14" class="w50"/>亩，土<input type="text" id="14" class="w50"/>亩，林地面积<input type="text" id="14" class="w50"/>亩，林地果园<input type="text" id="14" class="w50"/>亩，荒山荒坡<input type="text" id="14" class="w50"/>亩。主要产业<input type="text" id="27" class="w200"/>，发展产业的贫困户有<input type="text" id="28" class="w50"/>户。<br>
-（三）2014年农村居民人均可支配收入<input type="text" id="29" class="w50"/>元。<input type="text" id="30" class="w50"/>（填“有”或“无”）村集体经济组织（即农民合作社）？如有，有<input type="text" id="31" class="w50"/>个，参加合作社的贫困户有<input type="text" id="32" class="w50"/>户，上年村级集体经济收入<input type="text" id="33" class="w50"/>万元。<br>
+（二）国土面积<input type="text" id="27" class="w50"/>平方公里，田<input type="text" id="28" class="w50"/>亩，土<input type="text" id="29" class="w50"/>亩，林地面积<input type="text" id="30" class="w50"/>亩，林地果园<input type="text" id="31" class="w50"/>亩，荒山荒坡<input type="text" id="32" class="w50"/>亩。主要产业<input type="text" id="33" class="w200"/>，发展产业的贫困户有<input type="text" id="34" class="w50"/>户。<br>
+（三）2014年农村居民人均可支配收入<input type="text" id="35" class="w50"/>元。<input type="text" id="36" class="w50"/>（填“有”或“无”）村集体经济组织（即农民合作社）？如有，有<input type="text" id="37" class="w50"/>个，参加合作社的贫困户有<input type="text" id="38" class="w50"/>户，上年村级集体经济收入<input type="text" id="39" class="w50"/>万元。<br>
 （四）基础设施建设情况<br>
 1、行政村到乡镇所在地是否通沥青（水泥）路？<br>
 <input type="checkbox" name="chk" value="1">通&nbsp;&nbsp;
 <input type="checkbox" name="chk" value="2">不通&nbsp;&nbsp;
-如通，有<input type="text" id="34" class="w50"/>公里。<br>
-2、有<input type="text" id="35" class="w50"/>个自然村道路硬化。<br>
+如通，有<input type="text" id="40" class="w50"/>公里。<br>
+2、有<input type="text" id="41" class="w50"/>个自然村道路硬化。<br>
 3、行政村是否有卫生室？<br>
 <input type="checkbox" name="chk" value="3">有&nbsp;&nbsp;
 <input type="checkbox" name="chk" value="4">否&nbsp;&nbsp;<br>
@@ -87,8 +117,8 @@
 6、行政村是否通通宽带？<br>
 <input type="checkbox" name="chk" value="9">有&nbsp;&nbsp;
 <input type="checkbox" name="chk" value="10">否&nbsp;&nbsp;<br>
-7、没有达到安全饮水的有<input type="text" id="36" class="w50"/>户。<br>
-8、无住房或住危房的有<input type="text" id="37" class="w50"/>户。<br>
+7、没有达到安全饮水的有<input type="text" id="42" class="w50"/>户。<br>
+8、无住房或住危房的有<input type="text" id="43" class="w50"/>户。<br>
 （五）村里是否发生过以下影响社会稳定的问题？<br>
 <input type="checkbox" name="chk" value="11">没有&nbsp;&nbsp;
 <input type="checkbox" name="chk" value="12">经济类&nbsp;&nbsp;
@@ -109,7 +139,7 @@
 4、是否村里的所有贫困户都有干部结对帮扶？<br>
 <input type="checkbox" name="chk" value="23">有&nbsp;&nbsp;
 <input type="checkbox" name="chk" value="24">否&nbsp;&nbsp;<br>
-如选“是”，结对干部每年来<input type="text" id="38" class="w50"/>次；如选“否”，有<input type="text" id="39" class="w50"/>户没有干部结对帮扶。<br>
+如选“是”，结对干部每年来<input type="text" id="44" class="w50"/>次；如选“否”，有<input type="text" id="45" class="w50"/>户没有干部结对帮扶。<br>
 二、致贫原因<br>
 （六）导致本村贫困的原因（可多选）<br>
 <input type="checkbox" name="chk" value="25">交通不便&nbsp;&nbsp;

@@ -4,10 +4,27 @@
 <title>云南省领导干部遍访贫困户访谈问卷</title>
 <script type="text/javascript">
 	function getHtmlValues() {
+		var str = "";
+		//获取该表单下的所有input标签
+		str += document.getElementById("" + 1).value + " ,";
+		str += document.getElementById("" + 2).value + " ,";
+		str += document.getElementById("" + 3).value + " ,";
+		str += document.getElementById("" + 4).value + " ,";
+		str += document.getElementById("" + 5).value + " ,";
+		str += document.getElementById("" + 6).value + " ,";
+		str += document.getElementById("" + 7).value + " ,";
+		str += document.getElementById("" + 8).value + " ,";
+		str += document.getElementById("" + 9).value + " ,";
+		str += document.getElementById("" + 10).value + " ,";
+		str += document.getElementById("" + 11).value + " ,";
+		str += document.getElementById("" + 12).value + " ,";
+		str += document.getElementById("" + 13).value + " ,";
+		str += document.getElementById("" + 14).value + " ,";
+		str += document.getElementById("" + 15).value + " ";
+		str += "$_$";
+		
 		//获取所有name为chk的多选框,返回一个多选框数组
 		var chks = document.form.chk;
-		//把选中的多选框的值拼接成字符串
-		var str = "";
 		//循环多选框数组
 		for (var i = 0; i < chks.length; i++) {
 			//如果多选框被选中，则把值累计到str中

@@ -158,7 +158,7 @@ public class FileUtil {
                 String line;
                 //分行读取
                 while ((line = buffreader.readLine()) != null) {
-                    content.append(line + "\n");
+                    content.append(line);
                 }
                 instream.close();
             } catch (java.io.FileNotFoundException e) {
